@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosoft.med.mapper.LLTest2Mapper">
+  <resultMap id="BaseResultMap" type="com.sinosoft.med.pojo.LLTest2">
+    <result column="GRPCONTNO" jdbcType="CHAR" property="grpcontno" />
+  </resultMap>
+  <insert id="insert" parameterType="com.sinosoft.med.pojo.LLTest2">
+    insert into LLTEST (GRPCONTNO)
+    values (#{grpcontno,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sinosoft.med.pojo.LLTest2">
+    insert into LLTEST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="grpcontno != null">
+        GRPCONTNO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="grpcontno != null">
+        #{grpcontno,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getNum" resultType="Integer">
+    select COUNT(*) from LLTEST
+  </select>
+</mapper>

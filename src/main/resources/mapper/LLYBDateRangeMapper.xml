@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinosoft.med.mapper.LLYBDateRangeMapper">
+  <resultMap id="BaseResultMap" type="com.sinosoft.med.pojo.LLYBDateRange">
+    <id column="GRPCONTNO" jdbcType="CHAR" property="grpcontno" />
+    <result column="INJURYSTARTDATE" jdbcType="TIMESTAMP" property="injurystartdate" />
+    <result column="INJURYENDDATE" jdbcType="TIMESTAMP" property="injuryenddate" />
+    <result column="ACCSTARTDATE" jdbcType="TIMESTAMP" property="accstartdate" />
+    <result column="ACCENDDATE" jdbcType="TIMESTAMP" property="accenddate" />
+    <result column="FEESTARTDATE" jdbcType="TIMESTAMP" property="feestartdate" />
+    <result column="FEEENDDATE" jdbcType="TIMESTAMP" property="feeenddate" />
+    <result column="BALANCESTARTDATE" jdbcType="TIMESTAMP" property="balancestartdate" />
+    <result column="BALANCEENDDATE" jdbcType="TIMESTAMP" property="balanceenddate" />
+    <result column="MAKEDATE" jdbcType="TIMESTAMP" property="makedate" />
+    <result column="MAKETIME" jdbcType="CHAR" property="maketime" />
+    <result column="MODIFYDATE" jdbcType="TIMESTAMP" property="modifydate" />
+    <result column="MODIFYTIME" jdbcType="CHAR" property="modifytime" />
+    <result column="MNGCOM" jdbcType="CHAR" property="mngcom" />
+    <result column="OPERATOR" jdbcType="CHAR" property="operator" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    GRPCONTNO, INJURYSTARTDATE, INJURYENDDATE, ACCSTARTDATE, ACCENDDATE, FEESTARTDATE, 
+    FEEENDDATE, BALANCESTARTDATE, BALANCEENDDATE, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, 
+    MNGCOM, OPERATOR
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from LLYBDATERANGE
+    where GRPCONTNO = #{grpcontno,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from LLYBDATERANGE
+    where GRPCONTNO = #{grpcontno,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sinosoft.med.pojo.LLYBDateRange">
+    insert into LLYBDATERANGE (GRPCONTNO, INJURYSTARTDATE, INJURYENDDATE, 
+      ACCSTARTDATE, ACCENDDATE, FEESTARTDATE, 
+      FEEENDDATE, BALANCESTARTDATE, BALANCEENDDATE, 
+      MAKEDATE, MAKETIME, MODIFYDATE, 
+      MODIFYTIME, MNGCOM, OPERATOR
+      )
+    values (#{grpcontno,jdbcType=CHAR}, #{injurystartdate,jdbcType=TIMESTAMP}, #{injuryenddate,jdbcType=TIMESTAMP}, 
+      #{accstartdate,jdbcType=TIMESTAMP}, #{accenddate,jdbcType=TIMESTAMP}, #{feestartdate,jdbcType=TIMESTAMP}, 
+      #{feeenddate,jdbcType=TIMESTAMP}, #{balancestartdate,jdbcType=TIMESTAMP}, #{balanceenddate,jdbcType=TIMESTAMP}, 
+      #{makedate,jdbcType=TIMESTAMP}, #{maketime,jdbcType=CHAR}, #{modifydate,jdbcType=TIMESTAMP}, 
+      #{modifytime,jdbcType=CHAR}, #{mngcom,jdbcType=CHAR}, #{operator,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sinosoft.med.pojo.LLYBDateRange">
+    insert into LLYBDATERANGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="grpcontno != null">
+        GRPCONTNO,
+      </if>
+      <if test="injurystartdate != null">
+        INJURYSTARTDATE,
+      </if>
+      <if test="injuryenddate != null">
+        INJURYENDDATE,
+      </if>
+      <if test="accstartdate != null">
+        ACCSTARTDATE,
+      </if>
+      <if test="accenddate != null">
+        ACCENDDATE,
+      </if>
+      <if test="feestartdate != null">
+        FEESTARTDATE,
+      </if>
+      <if test="feeenddate != null">
+        FEEENDDATE,
+      </if>
+      <if test="balancestartdate != null">
+        BALANCESTARTDATE,
+      </if>
+      <if test="balanceenddate != null">
+        BALANCEENDDATE,
+      </if>
+      <if test="makedate != null">
+        MAKEDATE,
+      </if>
+      <if test="maketime != null">
+        MAKETIME,
+      </if>
+      <if test="modifydate != null">
+        MODIFYDATE,
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME,
+      </if>
+      <if test="mngcom != null">
+        MNGCOM,
+      </if>
+      <if test="operator != null">
+        OPERATOR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="grpcontno != null">
+        #{grpcontno,jdbcType=CHAR},
+      </if>
+      <if test="injurystartdate != null">
+        #{injurystartdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="injuryenddate != null">
+        #{injuryenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accstartdate != null">
+        #{accstartdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accenddate != null">
+        #{accenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feestartdate != null">
+        #{feestartdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feeenddate != null">
+        #{feeenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="balancestartdate != null">
+        #{balancestartdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="balanceenddate != null">
+        #{balanceenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="makedate != null">
+        #{makedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maketime != null">
+        #{maketime,jdbcType=CHAR},
+      </if>
+      <if test="modifydate != null">
+        #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null">
+        #{modifytime,jdbcType=CHAR},
+      </if>
+      <if test="mngcom != null">
+        #{mngcom,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinosoft.med.pojo.LLYBDateRange">
+    update LLYBDATERANGE
+    <set>
+      <if test="injurystartdate != null">
+        INJURYSTARTDATE = #{injurystartdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="injuryenddate != null">
+        INJURYENDDATE = #{injuryenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accstartdate != null">
+        ACCSTARTDATE = #{accstartdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accenddate != null">
+        ACCENDDATE = #{accenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feestartdate != null">
+        FEESTARTDATE = #{feestartdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feeenddate != null">
+        FEEENDDATE = #{feeenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="balancestartdate != null">
+        BALANCESTARTDATE = #{balancestartdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="balanceenddate != null">
+        BALANCEENDDATE = #{balanceenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="makedate != null">
+        MAKEDATE = #{makedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maketime != null">
+        MAKETIME = #{maketime,jdbcType=CHAR},
+      </if>
+      <if test="modifydate != null">
+        MODIFYDATE = #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null">
+        MODIFYTIME = #{modifytime,jdbcType=CHAR},
+      </if>
+      <if test="mngcom != null">
+        MNGCOM = #{mngcom,jdbcType=CHAR},
+      </if>
+      <if test="operator != null">
+        OPERATOR = #{operator,jdbcType=CHAR},
+      </if>
+    </set>
+    where GRPCONTNO = #{grpcontno,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sinosoft.med.pojo.LLYBDateRange">
+    update LLYBDATERANGE
+    set INJURYSTARTDATE = #{injurystartdate,jdbcType=TIMESTAMP},
+      INJURYENDDATE = #{injuryenddate,jdbcType=TIMESTAMP},
+      ACCSTARTDATE = #{accstartdate,jdbcType=TIMESTAMP},
+      ACCENDDATE = #{accenddate,jdbcType=TIMESTAMP},
+      FEESTARTDATE = #{feestartdate,jdbcType=TIMESTAMP},
+      FEEENDDATE = #{feeenddate,jdbcType=TIMESTAMP},
+      BALANCESTARTDATE = #{balancestartdate,jdbcType=TIMESTAMP},
+      BALANCEENDDATE = #{balanceenddate,jdbcType=TIMESTAMP},
+      MAKEDATE = #{makedate,jdbcType=TIMESTAMP},
+      MAKETIME = #{maketime,jdbcType=CHAR},
+      MODIFYDATE = #{modifydate,jdbcType=TIMESTAMP},
+      MODIFYTIME = #{modifytime,jdbcType=CHAR},
+      MNGCOM = #{mngcom,jdbcType=CHAR},
+      OPERATOR = #{operator,jdbcType=CHAR}
+    where GRPCONTNO = #{grpcontno,jdbcType=CHAR}
+  </update>
+</mapper>
